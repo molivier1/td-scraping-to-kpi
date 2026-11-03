@@ -3,7 +3,7 @@ import requests
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 MODEL = "llama3.2"
-N_POSTINGS = int(sys.argv[1]) if len(sys.argv) > 1 else 15
+N_POSTINGS = int(sys.argv[1]) if len(sys.argv) > 1 else 50
 MAX_CHARS = 1500  # keeps each call fast enough for a live session -- see below
 
 PROMPT_TEMPLATE = """Extract ONLY the concrete named tools/technologies/hard skills mentioned

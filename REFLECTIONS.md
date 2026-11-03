@@ -33,3 +33,7 @@ I got 2 results for Python and none for SAS. I have to note that I used a small 
 
 ## Reflection - Could my friend reconstruct
 I would need to remove the name of the posting as well as the name of the company for that posting.
+
+
+## Reflection - Audience
+The target audience should be Software Engineers but as it stands, it is not clear that it is the case. Maybe adding a line mentionning something like "Skills found for Software Engineer postings".
