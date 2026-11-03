@@ -4,7 +4,7 @@ from collections import Counter
 # One deliberately simple, deliberately editable KPI definition -- change
 # TARGET_SKILL, or write a different KPI function entirely. Per this course's
 # standing principle: a KPI is a construct you chose, not a neutral fact.
-TARGET_SKILL = "sas"
+TARGET_SKILL = "python"
 
 def load_extracted(path="data/extracted.json"):
     with open(path) as f:

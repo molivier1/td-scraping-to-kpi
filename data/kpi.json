@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-03T09:12:59Z",
-  "kpi_label": "% of postings mentioning 'sas'",
-  "kpi_value": 0.0,
+  "generated_at": "2026-11-03T09:15:49Z",
+  "kpi_label": "% of postings mentioning 'python'",
+  "kpi_value": 0.133,
   "n_postings_analyzed": 15,
-  "n_matching": 0,
+  "n_matching": 2,
   "top_skills": [
     {
       "skill": "AWS",
