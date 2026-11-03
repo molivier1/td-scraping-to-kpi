@@ -35,9 +35,9 @@ def main():
     postings = load_extracted()
     kpi = compute_kpi(postings)
     print(json.dumps(kpi, indent=2))
-    with open("data/kpi.json", "w") as f:
+    with open("docs/data/kpi.json", "w") as f:
         json.dump(kpi, f, indent=2)
-    print("\nWrote data/kpi.json")
+    print("\nWrote docs/data/kpi.json")
 
 if __name__ == "__main__":
     main()

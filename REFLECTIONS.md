@@ -29,3 +29,7 @@ For that case, I would guess that a skill like SAS or AI would be interesting.
 
 ## Reflection - Change the targeted skill
 I got 2 results for Python and none for SAS. I have to note that I used a small LLM which means that it found less skills in the postings which definetly impacted this step.
+
+
+## Reflection - Could my friend reconstruct
+I would need to remove the name of the posting as well as the name of the company for that posting.

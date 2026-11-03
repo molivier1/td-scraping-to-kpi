@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scraping to KPI lab</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  #kpi-card { padding: 1rem; border: 2px solid #0d7c9e; border-radius: 8px; }
+  #kpi-card .value { font-size: 2rem; font-weight: bold; color: #0d7c9e; }
+  #kpi-card .label { font-size: 0.9rem; color: #666; }
+  canvas { margin-top: 1.5rem; }
+  #updated { color: #666; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <h1>Scraping to KPI lab</h1>
+  <p>One real KPI, computed from LLM-extracted skills across real scraped postings — see <code>data/extracted.json</code> and <code>compute_kpi.py</code>.</p>
+  <div id="kpi-card">Loading...</div>
+  <canvas id="skillsChart" height="320"></canvas>
+  <p id="updated"></p>
+
+<script>
+fetch('data/kpi.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data.n_postings_analyzed) {
+      document.getElementById('kpi-card').innerHTML = '<p>No KPI computed yet -- run extract_skills.py then compute_kpi.py.</p>';
+      return;
+    }
+
+    document.getElementById('kpi-card').innerHTML = `
+      <div class="value">${(data.kpi_value * 100).toFixed(0)}%</div>
+      <div class="label">${data.kpi_label} (${data.n_matching} of ${data.n_postings_analyzed} postings)</div>
+      <div class="label">Average ${data.avg_skills_per_posting} distinct skills extracted per posting</div>
+    `;
+
+    const top = data.top_skills || [];
+    new Chart(document.getElementById('skillsChart'), {
+      type: 'bar',
+      data: {
+        labels: top.map(s => s.skill),
+        datasets: [{ label: 'Postings mentioning this skill', data: top.map(s => s.count), backgroundColor: '#0d7c9e' }],
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Most-mentioned skills across analyzed postings' },
+        },
+      },
+    });
+
+    document.getElementById('updated').textContent = `Data last computed ${data.generated_at || '(see script output)'}`;
+  })
+  .catch(err => {
+    document.getElementById('kpi-card').innerHTML = '<p>Could not load KPI (' + err + ').</p>';
+  });
+</script>
+</body>
+</html>
