@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-11-03T09:12:59Z",
+  "kpi_label": "% of postings mentioning 'sas'",
+  "kpi_value": 0.0,
+  "n_postings_analyzed": 15,
+  "n_matching": 0,
+  "top_skills": [
+    {
+      "skill": "AWS",
+      "count": 4
+    },
+    {
+      "skill": "Docker",
+      "count": 3
+    },
+    {
+      "skill": "Python",
+      "count": 2
+    },
+    {
+      "skill": "MATLAB",
+      "count": 1
+    },
+    {
+      "skill": "CAPL",
+      "count": 1
+    },
+    {
+      "skill": "C#",
+      "count": 1
+    },
+    {
+      "skill": "Large Language Models",
+      "count": 1
+    },
+    {
+      "skill": "RPA",
+      "count": 1
+    },
+    {
+      "skill": "Terraform",
+      "count": 1
+    },
+    {
+      "skill": "Glue",
+      "count": 1
+    }
+  ],
+  "avg_skills_per_posting": 2.0
+}
